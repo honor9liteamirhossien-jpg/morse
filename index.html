@@ -1,65 +1,60 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-  <style>
-    body.theme-dark footer {
-      color: #000 !important;
-    }
-    /* حالت دارک: متنِ کادر ایمیل و فیلدها را سیاه کن */
-body.theme-dark footer,
-body.theme-dark .footer,
-body.theme-dark .email-card,
-body.theme-dark .card,
-body.theme-dark .panel {
-  color: #000 !important;
-}
-
-/* فیلدهای ورود متن و خروجی */
-body.theme-dark input,
-body.theme-dark textarea,
-body.theme-dark .input,
-body.theme-dark .output,
-body.theme-dark .output-box {
-  color: #000 !important;     /* متن داخل فیلدها */
-  caret-color: #000;           /* رنگ نشانگر تایپ */
-}
-
-/* متن placeholder داخل فیلدها (کمی خاکستری برای تشخیص بهتر) */
-body.theme-dark input::placeholder,
-body.theme-dark textarea::placeholder {
-  color: #666;
-}
-  </style>
-<head>
-  <link rel="icon" type="image/png" href="favicon.png">
-</head>
   <meta charset="UTF-8" />
   <title>مبدل کد مورس</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" href="favicon.png">
+
   <style>
-    /* تم‌ها (۶ حالت در لوپ) */
-    body.theme-light { --bg:#fdfbfb; --bg2:#ebedee; --fg:#333; --card:rgba(255,255,255,0.9); --btn1a:#6ec1e4; --btn1b:#81e6a8; --accent:#f78fb3; --output-bg:#eafaf1; }
-  body.theme-dark {
-  --bg: #121212;          /* پس‌زمینه اصلی خیلی تیره */
-  --bg2: #1e1e2f;         /* پس‌زمینه دوم کمی روشن‌تر */
-  --fg: #e0e0e0;          /* متن خاکستری روشن (نه سفید خالص) */
-  --card: #2c2c3c;        /* کادر تیره، متن رویش خوانا */
-  --btn1a: #81e6a8;       /* رنگ دکمه‌ها */
-  --btn1b: #f78fb3;
-  --accent: #6ec1e4;      /* رنگ‌های تاکیدی */
-  --output-bg: #3a3a4a;   /* پس‌زمینه خروجی کمی روشن‌تر از bg */
-}
-    body.theme-blueRed { --bg:#eff6ff; --bg2:#ffe5e5; --fg:#2c3e50; --card:rgba(255,255,255,0.95); --btn1a:#3b82f6; --btn1b:#ef4444; --accent:#60a5fa; --output-bg:#e6f0ff; }
-    body.theme-whitePink { --bg:#fff7fb; --bg2:#ffeef7; --fg:#4b5563; --card:rgba(255,255,255,0.95); --btn1a:#f78fb3; --btn1b:#fbcfe8; --accent:#ff7aa2; --output-bg:#fff0f6; }
-    body.theme-tealPurple { --bg:#e6fffa; --bg2:#ede9fe; --fg:#374151; --card:rgba(255,255,255,0.95); --btn1a:#14b8a6; --btn1b:#8b5cf6; --accent:#22d3ee; --output-bg:#e5fffb; }
-    body.theme-sunset { --bg:#fff5e6; --bg2:#ffe4e1; --fg:#3d3d3d; --card:rgba(255,255,255,0.95); --btn1a:#fb923c; --btn1b:#f43f5e; --accent:#fdba74; --output-bg:#fff0e6; }
+    /* حالت دارک: متن فیلدها و خروجی‌ها سیاه بماند */
+    body.theme-dark textarea,
+    body.theme-dark .output {
+      color: #000 !important;
+      caret-color: #000;
+    }
+    body.theme-dark textarea::placeholder {
+      color: #666;
+    }
+
+    /* تم‌ها: هر تم علاوه بر رنگ‌های عمومی، رنگ‌های مخصوص دکمه‌ی جایگذاری را نیز دارد */
+    body.theme-light {
+      --bg:#fdfbfb; --bg2:#ebedee; --fg:#333; --card:#fff;
+      --btn1a:#6ec1e4; --btn1b:#81e6a8; --accent:#f78fb3; --output-bg:#eafaf1;
+      --pasteA:#ff9f43; --pasteB:#ff6b6b;
+    }
+    body.theme-dark  {
+      --bg:#121212; --bg2:#1e1e2f; --fg:#e0e0e0; --card:#2c2c3c;
+      --btn1a:#81e6a8; --btn1b:#f78fb3; --accent:#6ec1e4; --output-bg:#3a3a4a;
+      --pasteA:#fb923c; --pasteB:#f43f5e;
+    }
+    body.theme-blueRed   {
+      --bg:#eff6ff; --bg2:#ffe5e5; --fg:#2c3e50; --card:#fff;
+      --btn1a:#3b82f6; --btn1b:#ef4444; --accent:#60a5fa; --output-bg:#e6f0ff;
+      --pasteA:#f59e0b; --pasteB:#ef4444;
+    }
+    body.theme-whitePink {
+      --bg:#fff7fb; --bg2:#ffeef7; --fg:#4b5563; --card:#fff;
+      --btn1a:#f78fb3; --btn1b:#fbcfe8; --accent:#ff7aa2; --output-bg:#fff0f6;
+      --pasteA:#f59e0b; --pasteB:#fb7185;
+    }
+    body.theme-tealPurple{
+      --bg:#e6fffa; --bg2:#ede9fe; --fg:#374151; --card:#fff;
+      --btn1a:#14b8a6; --btn1b:#8b5cf6; --accent:#22d3ee; --output-bg:#e5fffb;
+      --pasteA:#f97316; --pasteB:#f43f5e;
+    }
+    body.theme-sunset    {
+      --bg:#fff5e6; --bg2:#ffe4e1; --fg:#3d3d3d; --card:#fff;
+      --btn1a:#fb923c; --btn1b:#f43f5e; --accent:#fdba74; --output-bg:#fff0e6;
+      --pasteA:#fdba74; --pasteB:#f43f5e;
+    }
 
     body {
       font-family: "Tahoma", sans-serif;
       background: linear-gradient(135deg, var(--bg), var(--bg2));
       color: var(--fg);
       text-align: center;
-      padding: 90px 30px 30px; /* فضای باکس پیام ثابت */
+      padding: 90px 30px 30px;
       transition: background 0.4s, color 0.4s;
       direction: rtl;
     }
@@ -72,16 +67,17 @@ body.theme-dark textarea::placeholder {
       margin: auto;
     }
     h2 { color: var(--fg); margin-bottom: 10px; }
-
     .row { margin-top: 10px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
 
-    /* ورودی‌ها + پاک‌کردن سریع (آیکون سطل بالا-راست) */
+    /* ورودی چندخطی + دکمه پاک‌کردن */
     .input-wrap { position: relative; width: 90%; margin: 8px auto; }
-    .input-wrap input[type="text"] {
-      width: 100%; padding: 12px 40px 12px 12px;
+    .input-wrap textarea {
+      width: 100%;
+      padding: 12px 40px 12px 12px;
       border: 1px solid #ccc; border-radius: 10px; font-size: 16px;
       background: rgba(255,255,255,0.9); color: var(--fg);
       transition: background 0.3s, color 0.3s, border 0.3s;
+      resize: vertical;
     }
     .clear-btn {
       position: absolute; top: 8px; right: 8px;
@@ -100,9 +96,10 @@ body.theme-dark textarea::placeholder {
       transition: transform 0.1s ease, opacity 0.3s ease;
     }
     button:hover { opacity: 0.92; transform: translateY(-1px); }
-    .copy-btn { background: linear-gradient(135deg, var(--accent), var(--btn1a)); }
-    .paste-btn { background: linear-gradient(135deg, #ff9f43, #ff6b6b); }
-    .lang-btn { background: linear-gradient(135deg, var(--btn1a), var(--accent)); }
+
+    .copy-btn  { background: linear-gradient(135deg, var(--accent), var(--btn1a)); }
+    .paste-btn { background: linear-gradient(135deg, var(--pasteA), var(--pasteB)); } /* تغییر رنگ با تم */
+    .lang-btn  { background: linear-gradient(135deg, var(--btn1a), var(--accent)); }
 
     /* خروجی‌ها */
     p.output {
@@ -111,9 +108,9 @@ body.theme-dark textarea::placeholder {
       margin-top: 10px; font-size: 18px; word-wrap: break-word;
       text-align: left; direction: ltr;
     }
-    #outputMorse { font-family: "Courier New", monospace; position: relative; }
+    #outputMorse { font-family: "Courier New", monospace; }
 
-    /* اسپیکر بالا-راست بیرون از کادر خروجی مورس */
+    /* هدر خروجی مورس با اسپیکر */
     .morse-header {
       display: flex; align-items: center; justify-content: space-between;
       width: 90%; margin: 4px auto -2px;
@@ -126,7 +123,7 @@ body.theme-dark textarea::placeholder {
     .speaker-btn svg { width: 20px; height: 20px; fill: #555; }
     .speaker-btn:hover svg { fill: #333; }
 
-    /* باکس پیام ثابت بالای صفحه با آیکون SVG */
+    /* باکس پیام */
     #messageBox {
       position: fixed; top: 12px; left: 50%; transform: translateX(-50%);
       padding: 10px 18px; border-radius: 10px; font-size: 15px;
@@ -138,6 +135,21 @@ body.theme-dark textarea::placeholder {
     #messageBox.error   { background: #f8d7da; color: #721c24; }
     #messageBox.warning { background: #fff3cd; color: #856404; }
     #messageBox svg { vertical-align: middle; margin-left: 6px; }
+
+    /* راهنمای استفاده با SVG */
+    .guide {
+      margin-top: 40px; padding: 20px; background: #f9f9f9; border-radius: 8px; text-align: right;
+    }
+    .guide h3 { color:#6ec1e4; margin-bottom: 10px; }
+    .guide ul { list-style:none; padding:0; margin:0; }
+    .guide li { margin:8px 0; display:flex; align-items:center; gap:8px; color:#333; }
+    .guide svg { width:20px; height:20px; fill:#6ec1e4; }
+
+    /* فوتر: رنگ ایمیل ثابت */
+    footer {
+      text-align:center; margin-top:50px; padding:20px; background-color:#f0f0f0;
+      color:#000 !important;
+    }
   </style>
 </head>
 <body class="theme-light">
@@ -147,7 +159,7 @@ body.theme-dark textarea::placeholder {
   <div class="container">
     <h2>🔡 مبدل کد مورس</h2>
 
-    <!-- سوئیچ تم‌ها (لوپ) -->
+    <!-- سوئیچ تم‌ها -->
     <div class="row">
       <button onclick="cycleTheme()">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" viewBox="0 0 24 24"><path d="M12 6v3l4-4-4-4v3C6.48 4 2 8.48 2 14c0 3.31 1.34 6.31 3.5 8.5l1.42-1.42A9.96 9.96 0 0 1 4 14c0-4.42 3.58-8 8-8zm7.5 1.5L18.08 8.92A9.96 9.96 0 0 1 20 14c0 4.42-3.58 8-8 8v-3l-4 4 4 4v-3c5.52 0 10-4.48 10-10 0-3.31-1.34-6.31-3.5-8.5z"/></svg>
@@ -158,28 +170,27 @@ body.theme-dark textarea::placeholder {
     <!-- متن ➝ مورس -->
     <h3>متن ➝ مورس</h3>
     <div class="input-wrap">
-      <input type="text" id="inputText" placeholder="متن یا عدد وارد کنید">
+      <textarea id="inputText" rows="5" placeholder="متن یا عدد وارد کنید..."></textarea>
       <button class="clear-btn" onclick="clearInput('inputText')" title="پاک کردن">
         <!-- سطل -->
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3h6l1 2h5v2H3V5h5l1-2zm1 6h2v9h-2V9zm4 0h2v9h-2V9zM7 9h2v9H7V9z"/></svg>
       </button>
     </div>
     <div class="row">
-      <button onclick="convertToMorse()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" viewBox="0 0 24 24"><path d="M12 4l1.41 1.41L8.83 10H20v2H8.83l4.58 4.59L12 18l-8-8 8-8z"/></svg>
-        تبدیل
-      </button>
-      <button class="copy-btn" onclick="copyText('outputMorse')">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v16h14a2 2 0 0 0 2-2V5z"/></svg>
-        کپی
-      </button>
+      <button onclick="convertToMorse()">تبدیل</button>
+      <button class="copy-btn" onclick="copyText('outputMorse')">کپی</button>
       <button class="paste-btn" onclick="pasteText('inputText')">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14h2V5h14V3zm-2 4H8a2 2 0 0 0-2 2v12h12a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/></svg>
+        <!-- آیکون SVG جایگذاری (Paste) -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" viewBox="0 0 24 24">
+          <path d="M19 3H14.82A3 3 0 0 0 12 1H8a3 3 0 0 0-2.82 2H5a2 2 0 0 0-2 2v14a2 
+           2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-7 0a1 1 0 0 1 1 1H8a1 
+           1 0 0 1 1-1h3zm7 16H5V5h2v2h10V5h2v14z"/>
+        </svg>
         جایگذاری
       </button>
     </div>
 
-    <!-- هدر خروجی مورس: اسپیکر بالا-راست -->
+    <!-- هدر خروجی مورس: اسپیکر -->
     <div class="morse-header">
       <span class="title">خروجی مورس</span>
       <button class="speaker-btn" onclick="playMorseAudio()" title="پخش صوتی مورس">
@@ -189,7 +200,7 @@ body.theme-dark textarea::placeholder {
     </div>
     <p id="outputMorse" class="output"></p>
 
-    <!-- سوئیچ زبان تبدیل مورس به متن: دقیقا بین دو بخش -->
+    <!-- سوئیچ زبان -->
     <div class="row">
       <button class="lang-btn" onclick="toggleLang()">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10.012 10.012 0 0 0 12 2z"/></svg>
@@ -200,28 +211,72 @@ body.theme-dark textarea::placeholder {
     <!-- مورس ➝ متن -->
     <h3>مورس ➝ متن</h3>
     <div class="input-wrap">
-      <input type="text" id="inputMorse" placeholder="کد مورس (یک فاصله بین حروف، سه فاصله بین کلمات)">
+      <textarea id="inputMorse" rows="5" placeholder="کد مورس (یک فاصله بین حروف، سه فاصله بین کلمات)"></textarea>
       <button class="clear-btn" onclick="clearInput('inputMorse')" title="پاک کردن">
         <!-- سطل -->
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3h6l1 2h5v2H3V5h5l1-2zm1 6h2v9h-2V9zm4 0h2v9h-2V9zM7 9h2v9H7V9z"/></svg>
       </button>
     </div>
     <div class="row">
-      <button onclick="convertToText()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" viewBox="0 0 24 24"><path d="M12 4l1.41 1.41L8.83 10H20v2H8.83l4.58 4.59L12 18l-8-8 8-8z"/></svg>
-        تبدیل
-      </button>
-      <button class="copy-btn" onclick="copyText('outputText')">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v16h14a2 2 0 0 0 2-2V5z"/></svg>
-        کپی
-      </button>
+      <button onclick="convertToText()">تبدیل</button>
+      <button class="copy-btn" onclick="copyText('outputText')">کپی</button>
       <button class="paste-btn" onclick="pasteText('inputMorse')">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14h2V5h14V3zm-2 4H8a2 2 0 0 0-2 2v12h12a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/></svg>
+        <!-- همان آیکون SVG جایگذاری -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" viewBox="0 0 24 24">
+          <path d="M19 3H14.82A3 3 0 0 0 12 1H8a3 3 0 0 0-2.82 2H5a2 2 0 0 0-2 2v14a2 
+           2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-7 0a1 1 0 0 1 1 1H8a1 
+           1 0 0 1 1-1h3zm7 16H5V5h2v2h10V5h2v14z"/>
+        </svg>
         جایگذاری
       </button>
     </div>
     <p id="outputText" class="output" style="direction: rtl; text-align: right;"></p>
+
+    <!-- راهنمای استفاده با SVG -->
+    <section class="guide">
+      <h3>📖 راهنمای استفاده</h3>
+      <ul>
+        <li>
+          <!-- نوشتن -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/></svg>
+          متن خود را در کادر بالا وارد کنید (می‌توانید چند خط بنویسید).
+        </li>
+        <li>
+          <!-- تبدیل -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6z"/></svg>
+          روی دکمه‌ی تبدیل کلیک کنید تا متن به مورس یا مورس به متن تبدیل شود.
+        </li>
+        <li>
+          <!-- خروجی -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5v18h14V3z"/></svg>
+          خروجی در کادر پایین نمایش داده می‌شود.
+        </li>
+        <li>
+          <!-- کپی -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 1H4v18h12V1z"/></svg>
+          با دکمه‌ی «کپی» نتیجه را سریع در کلیپ‌بورد ذخیره کنید.
+        </li>
+        <li>
+          <!-- جایگذاری -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M19 3H14.82A3 3 0 0 0 12 1H8a3 3 0 0 0-2.82 2H5a2 2 0 0 0-2 2v14a2 
+             2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-7 0a1 1 0 0 1 1 1H8a1 
+             1 0 0 1 1-1h3zm7 16H5V5h2v2h10V5h2v14z"/>
+          </svg>
+          با دکمه‌ی «جایگذاری» متن کپی‌شده از کلیپ‌بورد را سریع ببینید.
+        </li>
+        <li>
+          <!-- پاک کردن -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3h6l1 2h5v2H3V5h5l1-2zm1 6h2v9h-2V9zm4 0h2v9h-2V9zM7 9h2v9H7V9z"/></svg>
+          با دکمه «پاک کردن» متن یا مورس‌های نوشته‌شده را یکجا پاک کنید.
+        </li>
+      </ul>
+    </section>
   </div>
+
+  <footer>
+    این سایت متعلق به amir.study2026@gmail.com است
+  </footer>
 
   <script>
     /* نگاشت‌ها */
@@ -252,7 +307,7 @@ body.theme-dark textarea::placeholder {
     const faToEnDigit = { '۰':'0','۱':'1','۲':'2','۳':'3','۴':'4','۵':'5','۶':'6','۷':'7','۸':'8','۹':'9' };
     const enToFaDigit = { '0':'۰','1':'۱','2':'۲','3':'۳','4':'۴','5':'۵','6':'۶','7':'۷','8':'۸','9':'۹' };
 
-    /* زبان ترجیحی برای مورس ➝ متن (fa/en) */
+    /* زبان ترجیحی برای مورس ➝ متن */
     let currentLang = 'fa';
 
     /* تم‌ها لوپ */
@@ -329,7 +384,7 @@ body.theme-dark textarea::placeholder {
       }
       if (faScore > enScore) return 'fa';
       if (enScore > faScore) return 'en';
-      return currentLang; // ترجیح انتخاب کاربر در حالت مساوی
+      return currentLang;
     }
 
     /* مورس ➝ متن */
@@ -375,7 +430,7 @@ body.theme-dark textarea::placeholder {
       const out = document.getElementById('outputText');
       out.innerText = result;
 
-      // جهت نمایش خروجی بر اساس غالب بودن زبان
+      // جهت نمایش خروجی
       const enWords = decodedWords.filter(w => /^[A-Za-z0-9?!"',.;:()/_&=+\-@$]*$/.test(w)).length;
       const displayLang = (enWords > (decodedWords.length - enWords)) ? 'en' : 'fa';
       out.style.direction = (displayLang === 'fa') ? 'rtl' : 'ltr';
@@ -422,7 +477,7 @@ body.theme-dark textarea::placeholder {
       showMessage('success', '🗑️ ورودی پاک شد.');
     }
 
-    /* پخش صوتی مورس (اسپیکر بالا-راست) */
+    /* پخش صوتی مورس */
     function playMorseAudio(){
       const morse = document.getElementById('outputMorse').innerText.trim();
       if (!morse) { showMessage('warning', '🔔 خروجی مورس خالی است!'); return; }
@@ -449,7 +504,7 @@ body.theme-dark textarea::placeholder {
       }
       words.forEach((w, wi) => {
         const letters = w.trim().split(/\s+/);
-        letters.forEach((letter, li) => {
+        letters.forEach((letter) => {
           for (const ch of letter) {
             if (ch === '.') { beep(dot); }
             else if (ch === '-') { beep(dash); }
@@ -462,15 +517,12 @@ body.theme-dark textarea::placeholder {
       showMessage('success', '🔊 پخش صوتی مورس آغاز شد.');
     }
 
-    /* سوئیچ زبان ترجیحی برای مورس ➝ متن */
+    /* سوئیچ زبان ترجیحی */
     function toggleLang() {
       currentLang = (currentLang === 'fa') ? 'en' : 'fa';
       document.getElementById('langLabel').innerText = (currentLang === 'fa') ? 'فارسی' : 'English';
       showMessage('success', '🌐 زبان تبدیل: ' + (currentLang === 'fa' ? 'فارسی' : 'English'));
     }
   </script>
-<footer style="text-align:center; margin-top:50px; padding:20px; background-color:#f0f0f0;">
-  این سایت متعلق به amir.study2026@gmail.com است
-</footer>
 </body>
 </html>
