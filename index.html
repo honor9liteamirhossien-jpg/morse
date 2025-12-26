@@ -1,13 +1,52 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
+  <style>
+    body.theme-dark footer {
+      color: #000 !important;
+    }
+    /* حالت دارک: متنِ کادر ایمیل و فیلدها را سیاه کن */
+body.theme-dark footer,
+body.theme-dark .footer,
+body.theme-dark .email-card,
+body.theme-dark .card,
+body.theme-dark .panel {
+  color: #000 !important;
+}
+
+/* فیلدهای ورود متن و خروجی */
+body.theme-dark input,
+body.theme-dark textarea,
+body.theme-dark .input,
+body.theme-dark .output,
+body.theme-dark .output-box {
+  color: #000 !important;     /* متن داخل فیلدها */
+  caret-color: #000;           /* رنگ نشانگر تایپ */
+}
+
+/* متن placeholder داخل فیلدها (کمی خاکستری برای تشخیص بهتر) */
+body.theme-dark input::placeholder,
+body.theme-dark textarea::placeholder {
+  color: #666;
+}
+  </style>
+</head link rel="icon" type="image/png" href="favicon.png">
   <meta charset="UTF-8" />
   <title>مبدل کد مورس</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     /* تم‌ها (۶ حالت در لوپ) */
     body.theme-light { --bg:#fdfbfb; --bg2:#ebedee; --fg:#333; --card:rgba(255,255,255,0.9); --btn1a:#6ec1e4; --btn1b:#81e6a8; --accent:#f78fb3; --output-bg:#eafaf1; }
-    body.theme-dark  { --bg:#1e1e2f; --bg2:#2c2c3c; --fg:#f0f0f0; --card:rgba(44,44,60,0.9); --btn1a:#81e6a8; --btn1b:#f78fb3; --accent:#6ec1e4; --output-bg:#44475a; }
+  body.theme-dark {
+  --bg: #121212;          /* پس‌زمینه اصلی خیلی تیره */
+  --bg2: #1e1e2f;         /* پس‌زمینه دوم کمی روشن‌تر */
+  --fg: #e0e0e0;          /* متن خاکستری روشن (نه سفید خالص) */
+  --card: #2c2c3c;        /* کادر تیره، متن رویش خوانا */
+  --btn1a: #81e6a8;       /* رنگ دکمه‌ها */
+  --btn1b: #f78fb3;
+  --accent: #6ec1e4;      /* رنگ‌های تاکیدی */
+  --output-bg: #3a3a4a;   /* پس‌زمینه خروجی کمی روشن‌تر از bg */
+}
     body.theme-blueRed { --bg:#eff6ff; --bg2:#ffe5e5; --fg:#2c3e50; --card:rgba(255,255,255,0.95); --btn1a:#3b82f6; --btn1b:#ef4444; --accent:#60a5fa; --output-bg:#e6f0ff; }
     body.theme-whitePink { --bg:#fff7fb; --bg2:#ffeef7; --fg:#4b5563; --card:rgba(255,255,255,0.95); --btn1a:#f78fb3; --btn1b:#fbcfe8; --accent:#ff7aa2; --output-bg:#fff0f6; }
     body.theme-tealPurple { --bg:#e6fffa; --bg2:#ede9fe; --fg:#374151; --card:rgba(255,255,255,0.95); --btn1a:#14b8a6; --btn1b:#8b5cf6; --accent:#22d3ee; --output-bg:#e5fffb; }
@@ -428,5 +467,8 @@
       showMessage('success', '🌐 زبان تبدیل: ' + (currentLang === 'fa' ? 'فارسی' : 'English'));
     }
   </script>
+<footer style="text-align:center; margin-top:50px; padding:20px; background-color:#f0f0f0;">
+  این سایت متعلق به amir.study2026@gmail.com است
+</footer>
 </body>
 </html>
